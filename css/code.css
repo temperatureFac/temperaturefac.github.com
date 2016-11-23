@@ -194,7 +194,8 @@ body{
 	position:absolute;
 	left:0;
 	top:0px;
-	animation:test_b1 linear 1s ; 
+	animation:test_b1 linear 1s ;
+	 
 }
 @keyframes test_b2{
 	0%{ width:0px; }
@@ -253,12 +254,17 @@ body{
 }
 @keyframes test_b5{
 	0%{ opacity:0; }
-	50%{ opacity:0.6;}
-	100%{ opacity:1;}
+	30%{ opacity:0.9;}
+	90%{ opacity:1;}
+	100%{ opacity:0.9;}
 	
-	0%{  transform:scale(1.1,1.1);}
+	/*0%{  transform:scale(1.1,1.1);}
 	50%{ transform:scale(1.05,1.05);}
-	100%{ transform:scale(1,1);}
+	100%{ transform:scale(1,1);}*/
+	
+	0%{  transform:scale(0.8,0.8);}
+	10%{ transform:scale(1.2,1.2);}
+	100%{ transform:scale(1.5,1.5);}
 }
 .imgX img{
 	width:100%;
@@ -266,7 +272,7 @@ body{
 	position:absolute;
 	top:0;
 	left:0;
-	transformStyle:preserve-3d; 
+	transform-style:preserve-3d; 
 	perspective:800px; 
 	animation:test_b5 5s linear infinite;
 	animation-play-state: running;
@@ -275,4 +281,159 @@ body{
 	0%{  transform:rotateY(0deg);}
 	25%{ transform:rotateY(360deg);}
 	100%{ transform:rotateY(360deg);}
+}
+
+/*左侧*/
+
+#left{
+	width:50px;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:none;
+}	
+#left_button{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:none;
+	z-index:5;
+}	
+
+#left_button a{
+	color:#fff;	
+	width:150px;
+	height:50px;
+	line-height:40px;
+	text-align:center;
+	font-size:26px;
+	opacity:0;
+	transition:1s all ease;
+}
+#left_button a{
+	position:absolute;
+	left:0px;
+	transform:rotateZ(-90deg); 
+}
+#left_button a:nth-child(1){
+	top:147px;	
+}
+#left_button a:nth-child(2){
+	top:320px;	
+}
+#left_button a:nth-child(3){
+	top:498px;	
+}
+#left_bod{
+	width:100%;
+	height:100%;
+	background:none ;	
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:4;
+	opacity:0;
+	
+}
+#left_bod div{
+	width:1px;
+	height:1px;
+	position:absolute;
+	left:50px;
+	background:#fff ;
+	transition:0.5s all ease;	
+}
+#left_bod div:nth-child(1){
+	top:168px;
+}
+#left_bod div:nth-child(2){
+	top:342px;	
+}
+#left_bod div:nth-child(3){
+	top:515px;	
+}
+/*左侧事件*/
+#left_show{
+	display:none;
+	width:100%;
+	height:100%;
+}
+#left_show div{
+	display:none;
+	width:100%;
+	height:100%;
+}
+#left_bga{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	overflow:hidden;
+	display:none;
+	z-index:-1;
+}
+@keyframes test_b6{
+	0%{ opacity:0; }
+	10%{opacity:1; }
+	100%{ opacity:1;}
+	
+	0%{  transform:scale(1.2,1.2);}
+	10%{  transform:scale(1.1,1.1);}
+	100%{ transform:scale(1,1);}
+}
+#left_bga img{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	transform-style:preserve-3d; 
+	perspective:800px;
+	animation:test_b6 5s paused;
+}
+/*叉子*/
+@keyframes test_b7{
+	0%{ opacity:0; }
+	90%{opacity:1; }
+	100%{ opacity:1;}
+	
+	0%{  top:0px;}
+	90%{  top:35px;}
+	100%{ top:40px;}
+}
+#left_close{
+	width:50px;	
+	height:50px;	
+	position:absolute;
+	right:40px;
+	top:40px;
+	background:none;
+	transition:1s all ease;
+	transform:rotateZ(45deg);
+	display:none;
+	animation:test_b7 2s paused;
+}
+#left_close:hover{
+	transform:rotateZ(135deg);
+}
+#left_close div:nth-child(1){
+	position:absolute;
+	left:0%;
+	top:44%;
+	width:100%;
+	height:5px;
+	background:#fff;
+}
+#left_close div:nth-child(2){
+	position:absolute;
+	left:46%;
+	top:0%;
+	height:100%;
+	width:5px;
+	background:#fff;
 }
