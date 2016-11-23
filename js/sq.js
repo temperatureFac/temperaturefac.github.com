@@ -71,6 +71,7 @@ window.onload=function(){
 			/*oBox.style.opacity=1;*/
 			clearTimeout(timer3)
 		},2500);
+		
 
 	})();
 	//个人网站
@@ -116,6 +117,30 @@ window.onload=function(){
 			clearTimeout(timer6)	;
 		},4000)
 		
+		
+	})();
+	(function(){
+		//左侧出来
+		var timer66=setTimeout(function(){
+			var oA = document.getElementById('left_button');
+			var oB = document.getElementById('left_bod');
+			var aA=oA.children;
+			oB.style.opacity = '1';	
+			aA[0].style.opacity = '1';	
+			aA[0].style.left = '-45px';	
+		},2500);
+		var timer67=setTimeout(function(){
+			var oA = document.getElementById('left_button');
+			var aA=oA.children;
+			aA[1].style.opacity = '1';	
+			aA[1].style.left = '-45px';	
+		},3000);
+		var timer68=setTimeout(function(){
+			var oA = document.getElementById('left_button');
+			var aA=oA.children;
+			aA[2].style.opacity = '1';	
+			aA[2].style.left = '-45px';	
+		},3500);	
 	})();
 	
 	//首页图片切换
@@ -150,6 +175,63 @@ window.onload=function(){
 		},5000)
 	};
 	goTxt();
+	
+	//左侧事件
+	function goLeft(){
+		var ol_bt_box = document.getElementById('left_button');
+		var aBtn = 	ol_bt_box.children;
+		var ol_sw_box = document.getElementById('left_bod');
+		var aSw = ol_sw_box.children;
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].index=i;
+			aBtn[i].onmouseover=function(){
+				aSw[this.index].style.background='#FFF61A';
+				aSw[this.index].style.transform='scale(6,150)';	
+			};
+			aBtn[i].onmouseout=function(){
+				aSw[this.index].style.background='#fff';
+				aSw[this.index].style.transform='scale(1,1)';	
+			};
+			aBtn[i].onclick=function(){
+				var oImgX = document.getElementById('imgX');
+				var oB1 = document.getElementById('box_button');
+				var oB2 = document.getElementById('perW');
+				var oB3 = document.getElementById('theND');
+				
+				var oLbg = document.getElementById('left_bga');
+				var aLbg = oLbg.getElementsByTagName('img');
+				var oLc = document.getElementById('left_close');
+				oImgX.style.display = 'none';
+				oB1.style.display = 'none';
+				oB2.style.display = 'none';
+				oB3.style.display = 'none';
+				oLbg.style.display='block';
+				//先清空一下  解决了覆盖的问题
+				for(var j=0;j<aLbg.length;j++){
+					aLbg[j].style.display='none';
+				}
+				
+				aLbg[this.index].style.display='block';
+				
+				aLbg[this.index].style.animationPlayState='running';
+				
+				//关闭按钮
+				oLc.style.display='block';
+				oLc.style.animationPlayState='running';
+				oLc.onclick=function(){
+					oLc.style.display='none';
+					oImgX.style.display = 'block';
+					oB1.style.display = 'block';
+					oB2.style.display = 'block';
+					oB3.style.display = 'block';
+					oLbg.style.display='none';	
+				};
+				
+			};
+			
+		}
+	};
+	goLeft();
 	//爆炸
 	/*(function(){
 		
